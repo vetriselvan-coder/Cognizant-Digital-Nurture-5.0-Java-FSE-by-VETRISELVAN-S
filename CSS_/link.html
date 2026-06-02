@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Link and List Styling Demo</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        /* Navigation Menu */
+        .nav-menu {
+            list-style-type: none;   /* remove bullets */
+            padding: 0;
+            margin: 0;
+        }
+
+        .nav-menu li {
+            display: inline-block;
+            padding: 10px 15px;
+            margin-right: 10px;
+        }
+
+        /* Link Styles */
+        a:link {
+            color: blue;
+            text-decoration: none;
+        }
+
+        a:visited {
+            color: purple;
+        }
+
+        a:hover {
+            color: green;
+            text-decoration: underline;
+        }
+
+        a:active {
+            color: red;
+        }
+
+        /* Event List */
+        .event-list {
+            list-style-type: square;
+            list-style-position: inside;
+            margin-top: 20px;
+        }
+
+        .event-list li {
+            padding: 8px;
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>City Council Portal</h1>
+
+    <ul class="nav-menu">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Events</a></li>
+        <li><a href="#">Services</a></li>
+        <li><a href="#">Contact</a></li>
+    </ul>
+
+    <h2>Upcoming Events</h2>
+
+    <ul class="event-list">
+        <li>Community Clean-Up Drive</li>
+        <li>Health Awareness Camp</li>
+        <li>Tree Plantation Program</li>
+        <li>Public Safety Workshop</li>
+    </ul>
+
+</body>
+</html>

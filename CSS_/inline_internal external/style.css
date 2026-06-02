@@ -1,0 +1,23 @@
+.header {
+    background-color: navy;
+    color: white;
+    padding: 15px;
+    text-align: center;
+}
+
+.content {
+    margin: 20px;
+    font-family: Arial, sans-serif;
+}
+
+.btn {
+    background-color: green;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: darkgreen;
+}

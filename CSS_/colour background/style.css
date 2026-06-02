@@ -1,0 +1,35 @@
+/* Background image with fallback color */
+body {
+    background-color: #e6f2ff;
+    background-image: url("city-background.jpg");
+    background-size: cover;
+    background-position: center;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* Gradient header */
+.section-header {
+    background: linear-gradient(to right, #005aa7, #00c6ff);
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+/* HEX color for text */
+h2 {
+    color: #003366;
+}
+
+/* RGBA background color */
+.content {
+    background-color: rgba(255, 255, 255, 0.8);
+    margin: 20px;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+/* HEX color for paragraph text */
+p {
+    color: #333333;
+}

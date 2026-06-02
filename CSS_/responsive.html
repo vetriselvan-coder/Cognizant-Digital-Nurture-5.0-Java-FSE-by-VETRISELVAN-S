@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Responsive Web Design</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        /* Header */
+        header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 2vh 5vw;
+            text-align: center;
+        }
+
+        /* Navigation */
+        nav {
+            background-color: #34495e;
+        }
+
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin: 10px 20px;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.1rem;
+        }
+
+        /* Main layout using Flexbox */
+        .container {
+            display: flex;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .card {
+            flex: 1;
+            background-color: #f4f4f4;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        .card img {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+
+        h2 {
+            font-size: 2vw;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 1.2vw;
+            line-height: 1.5;
+        }
+
+        /* MEDIA QUERY */
+        @media (max-width: 768px) {
+
+            .nav-links {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .nav-links li {
+                margin: 10px 0;
+            }
+
+            .container {
+                flex-direction: column;
+            }
+
+            h2 {
+                font-size: 5vw;
+            }
+
+            p {
+                font-size: 4vw;
+            }
+
+            header {
+                padding: 4vh 3vw;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>City Portal</h1>
+    </header>
+
+    <nav>
+        <ul class="nav-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Events</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <div class="card">
+            <img src="https://via.placeholder.com/400" alt="Event">
+            <h2>Community Event</h2>
+            <p>Join us for a city-wide celebration with music and food.</p>
+        </div>
+
+        <div class="card">
+            <img src="https://via.placeholder.com/400" alt="Service">
+            <h2>Public Services</h2>
+            <p>Access important services and updates from the council.</p>
+        </div>
+    </div>
+
+</body>
+</html>

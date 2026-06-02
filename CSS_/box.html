@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Box Model & Layout Control</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        /* Event Card Box Model */
+        .eventCard {
+            border: 2px solid #2c3e50;
+            padding: 15px;
+            margin: 15px 0;
+            background-color: #f9f9f9;
+        }
+
+        /* Form Styling */
+        .form-box {
+            width: 300px;
+            margin: 20px auto;
+        }
+
+        input {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+
+        /* Outline for selected fields */
+        input:focus {
+            outline: 3px solid #00aaff;
+        }
+
+        /* Visibility vs Display demo */
+        .hidden-box {
+            visibility: hidden; /* still takes space */
+            background-color: red;
+            padding: 10px;
+            margin-top: 10px;
+        }
+
+        .none-box {
+            display: none; /* removed from layout */
+            background-color: green;
+            padding: 10px;
+            margin-top: 10px;
+        }
+
+        .demo-box {
+            background-color: #e0e0e0;
+            padding: 10px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Box Model & Layout Control</h1>
+
+    <div class="eventCard">
+        <h2>Music Night</h2>
+        <p>Enjoy live performances with full crowd experience.</p>
+    </div>
+
+    <div class="eventCard">
+        <h2>Art Exhibition</h2>
+        <p>Showcasing creative artworks from local artists.</p>
+    </div>
+
+    <div class="form-box">
+        <h3>Contact Form</h3>
+        <input type="text" placeholder="Your Name">
+        <input type="email" placeholder="Your Email">
+        <input type="text" placeholder="Subject">
+    </div>
+
+    <h3>Visibility vs Display Example</h3>
+
+    <div class="demo-box">I am visible</div>
+
+    <div class="hidden-box">I use visibility: hidden (space reserved)</div>
+
+    <div class="demo-box">I am still here</div>
+
+    <div class="none-box">I use display: none (removed completely)</div>
+
+    <div class="demo-box">I continue normally</div>
+
+</body>
+</html>

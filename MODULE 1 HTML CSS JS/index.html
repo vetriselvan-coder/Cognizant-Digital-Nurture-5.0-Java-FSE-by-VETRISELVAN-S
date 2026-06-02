@@ -1,174 +1,234 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Local Community Event Portal</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CityPulse – Community Event Portal</title>
 
-<link rel="stylesheet" href="style.css">
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <!-- External stylesheet -->
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
-<!-- Navigation -->
-<header>
-    <h1 id="mainHeader">Community Event Portal</h1>
-
-    <nav>
-        <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#events">Events</a></li>
-            <li><a href="#gallery">Gallery</a></li>
-            <li><a href="#register">Register</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
-</header>
-
-<!-- Home -->
-<section id="home">
-    <div id="welcomeBanner">
-        Welcome Residents!
-        <span style="color:red;font-weight:bold;">
-            20% Discount for Early Registration
-        </span>
+  <!-- ===================== NAVIGATION ===================== -->
+  <nav id="navbar">
+    <div class="nav-inner">
+      <a href="#home" class="logo">City<span>Pulse</span></a>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#events">Events</a></li>
+        <li><a href="#register">Register</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">&#9776;</button>
     </div>
+  </nav>
 
-    <h2>About Portal</h2>
+  <!-- ===================== HERO / HOME ===================== -->
+  <section id="home" class="hero">
+    <!-- Welcome banner for logged-in style display -->
+    <div id="welcomeBanner">
+      Welcome back! <span class="offer">🎉 Free entry this weekend</span>
+    </div>
+    <div class="hero-content">
+      <p class="hero-eyebrow">Your city. Your community.</p>
+      <h1>Discover &amp; Join <em>Local Events</em></h1>
+      <p class="hero-sub">From workshops to open-air concerts — find what's happening near you and be part of the moment.</p>
+      <div class="hero-cta">
+        <a href="#events" class="btn btn-primary">Browse Events</a>
+        <a href="#register" class="btn btn-outline">Register Now</a>
+      </div>
+    </div>
+    <!-- Decorative blobs -->
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+  </section>
 
-    <p class="highlight">
-        Register for community events and stay connected.
-    </p>
-</section>
+  <!-- ===================== EVENTS ===================== -->
+  <section id="events" class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Upcoming Events</h2>
+        <p>Filter by category and find what excites you.</p>
+      </div>
 
-<!-- Events -->
-<section id="events">
-    <h2>Upcoming Events</h2>
+      <!-- Filter bar -->
+      <div class="filter-bar">
+        <button class="filter-btn active" data-category="all">All</button>
+        <button class="filter-btn" data-category="music">🎵 Music</button>
+        <button class="filter-btn" data-category="workshop">🛠 Workshop</button>
+        <button class="filter-btn" data-category="sports">⚽ Sports</button>
+        <button class="filter-btn" data-category="food">🍴 Food</button>
+      </div>
 
-    <select id="eventCategory">
-        <option value="all">All Events</option>
-        <option value="music">Music</option>
-        <option value="sports">Sports</option>
-        <option value="workshop">Workshop</option>
-    </select>
+      <!-- Search bar -->
+      <div class="search-bar">
+        <input type="text" id="searchInput" placeholder="Search events by name…" />
+      </div>
 
-    <div id="eventContainer"></div>
-</section>
+      <!-- Event cards injected by JS -->
+      <div class="events-grid" id="eventsGrid"></div>
+    </div>
+  </section>
 
-<!-- Gallery -->
-<section id="gallery">
-    <h2>Event Gallery</h2>
+  <!-- ===================== GALLERY ===================== -->
+  <section id="gallery" class="section section-alt">
+    <div class="container">
+      <div class="section-header">
+        <h2>Past Event Highlights</h2>
+        <p>A glimpse of what we've celebrated together.</p>
+      </div>
+      <table class="gallery-table">
+        <caption>Community Event Photo Gallery</caption>
+        <tbody>
+          <tr>
+            <td><img src="https://picsum.photos/seed/ev1/300/200" alt="Jazz Night at City Park" title="Jazz Night at City Park" class="gallery-img" /></td>
+            <td><img src="https://picsum.photos/seed/ev2/300/200" alt="Pottery Workshop" title="Pottery Workshop" class="gallery-img" /></td>
+            <td><img src="https://picsum.photos/seed/ev3/300/200" alt="Annual 5K Run" title="Annual 5K Run" class="gallery-img" /></td>
+          </tr>
+          <tr>
+            <td><img src="https://picsum.photos/seed/ev4/300/200" alt="Street Food Fest" title="Street Food Fest" class="gallery-img" /></td>
+            <td><img src="https://picsum.photos/seed/ev5/300/200" alt="Yoga in the Park" title="Yoga in the Park" class="gallery-img" /></td>
+            <td><img src="https://picsum.photos/seed/ev6/300/200" alt="Book Fair" title="Book Fair" class="gallery-img" /></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
 
-    <table>
-        <tr>
-            <td>
-                <img src="images/event1.jpg"
-                     class="gallery-img"
-                     alt="Music Event"
-                     title="Music Event">
-            </td>
+  <!-- ===================== REGISTRATION FORM ===================== -->
+  <section id="register" class="section">
+    <div class="container form-container">
+      <div class="section-header">
+        <h2>Register for an Event</h2>
+        <p>Fill in your details and secure your spot today.</p>
+      </div>
 
-            <td>
-                <img src="images/event2.jpg"
-                     class="gallery-img"
-                     alt="Sports Event"
-                     title="Sports Event">
-            </td>
+      <form id="registrationForm" novalidate>
+        <div class="form-group">
+          <label for="fullName">Full Name</label>
+          <input type="text" id="fullName" name="fullName" placeholder="Jane Doe" required autofocus />
+          <span class="error-msg" id="nameError"></span>
+        </div>
 
-            <td>
-                <img src="images/event3.jpg"
-                     class="gallery-img"
-                     alt="Workshop"
-                     title="Workshop">
-            </td>
-        </tr>
-    </table>
-</section>
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="email" placeholder="jane@example.com" required />
+          <span class="error-msg" id="emailError"></span>
+        </div>
 
-<!-- Registration -->
-<section id="register">
+        <div class="form-group">
+          <label for="phone">Phone Number</label>
+          <input type="tel" id="phone" name="phone" placeholder="10-digit number" />
+          <span class="error-msg" id="phoneError"></span>
+        </div>
 
-    <h2>Event Registration</h2>
+        <div class="form-group">
+          <label for="eventDate">Preferred Date</label>
+          <input type="date" id="eventDate" name="eventDate" required />
+        </div>
 
-    <form id="registrationForm">
+        <div class="form-group">
+          <label for="eventType">Event Category</label>
+          <select id="eventType" name="eventType" required>
+            <option value="">-- Choose a category --</option>
+            <option value="music">🎵 Music</option>
+            <option value="workshop">🛠 Workshop</option>
+            <option value="sports">⚽ Sports</option>
+            <option value="food">🍴 Food</option>
+          </select>
+          <span class="fee-display" id="feeDisplay"></span>
+        </div>
 
-        <input type="text"
-               id="name"
-               placeholder="Enter Name"
-               required
-               autofocus>
+        <div class="form-group">
+          <label for="message">Message / Special Requests</label>
+          <textarea id="message" name="message" rows="4" placeholder="Any special requirements?"></textarea>
+          <span class="char-count" id="charCount">0 / 300 characters</span>
+        </div>
 
-        <input type="email"
-               id="email"
-               placeholder="Enter Email"
-               required>
+        <button type="submit" class="btn btn-primary" id="submitBtn">Register Now</button>
+        <output id="formOutput" class="form-output"></output>
+      </form>
+    </div>
+  </section>
 
-        <input type="date"
-               id="date"
-               required>
+  <!-- ===================== VIDEO PROMO ===================== -->
+  <section id="video" class="section section-alt">
+    <div class="container">
+      <div class="section-header">
+        <h2>Event Promo</h2>
+        <p>Get a feel for what's coming up.</p>
+      </div>
+      <div class="video-wrapper">
+        <video
+          id="promoVideo"
+          width="100%"
+          controls
+          poster="https://picsum.photos/seed/videothumb/800/450"
+          oncanplay="onVideoReady()"
+        >
+          <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+        <p id="videoStatus" class="video-status"></p>
+      </div>
+    </div>
+  </section>
 
-        <select id="eventType">
-            <option>Music Festival</option>
-            <option>Sports Meet</option>
-            <option>Workshop</option>
-        </select>
+  <!-- ===================== GEOLOCATION ===================== -->
+  <section id="location" class="section">
+    <div class="container geo-container">
+      <div class="section-header">
+        <h2>Find Nearby Events</h2>
+        <p>Let us locate the closest event to you.</p>
+      </div>
+      <button class="btn btn-primary" id="geoBtn">📍 Find Nearby Events</button>
+      <p id="geoResult" class="geo-result"></p>
+    </div>
+  </section>
 
-        <input type="text"
-               id="phone"
-               placeholder="Phone Number">
+  <!-- ===================== CONTACT ===================== -->
+  <section id="contact" class="section section-alt">
+    <div class="container">
+      <div class="section-header">
+        <h2>Contact Us</h2>
+        <p>Got questions? We'd love to hear from you.</p>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-card">
+          <span class="contact-icon">📧</span>
+          <h3>Email</h3>
+          <p>hello@citypulse.gov</p>
+        </div>
+        <div class="contact-card">
+          <span class="contact-icon">📞</span>
+          <h3>Phone</h3>
+          <p>+91 98765 43210</p>
+        </div>
+        <div class="contact-card">
+          <span class="contact-icon">🏛️</span>
+          <h3>Office</h3>
+          <p>City Hall, Block B, Chennai</p>
+        </div>
+      </div>
+      <p><a href="help.html" target="_blank" class="help-link">📄 Need help? Read our Help Guide →</a></p>
+    </div>
+  </section>
 
-        <textarea id="message"
-                  placeholder="Your Message"></textarea>
+  <!-- ===================== FOOTER ===================== -->
+  <footer id="footer">
+    <div class="container footer-inner">
+      <p class="footer-logo">City<span>Pulse</span></p>
+      <p class="footer-copy">&copy; 2025 CityPulse Community Portal. All rights reserved.</p>
+      <button class="btn btn-outline btn-sm" id="clearPrefsBtn">Clear Preferences</button>
+    </div>
+  </footer>
 
-        <p>Characters: <span id="count">0</span></p>
-
-        <button type="submit">
-            Register
-        </button>
-
-        <output id="result"></output>
-
-    </form>
-
-</section>
-
-<!-- Video -->
-<section>
-    <h2>Event Promo</h2>
-
-    <video width="500" controls id="promoVideo">
-        <source src="video/promo.mp4" type="video/mp4">
-    </video>
-
-    <p id="videoStatus"></p>
-</section>
-
-<!-- Geolocation -->
-<section>
-
-    <h2>Nearby Events</h2>
-
-    <button id="locationBtn">
-        Find Nearby Events
-    </button>
-
-    <p id="locationResult"></p>
-
-</section>
-
-<!-- Contact -->
-<section id="contact">
-
-    <h2>Contact</h2>
-
-    <p>Email: support@communityportal.com</p>
-
-</section>
-
-<footer>
-    <p>© 2026 Community Event Portal</p>
-</footer>
-
-<script src="script.js"></script>
+  <!-- JavaScript -->
+  <script src="main.js"></script>
 
 </body>
 </html>

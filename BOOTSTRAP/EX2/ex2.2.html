@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise 2.2</title>
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+</head>
+<body>
+
+<div class="container mt-5">
+    <h2 class="text-success mb-4">
+        Bootstrap JavaScript Plugin Example
+    </h2>
+
+    <button class="btn btn-primary"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#demo">
+        Show / Hide Content
+    </button>
+
+    <div class="collapse mt-3" id="demo">
+        <div class="card card-body">
+            This content is controlled by Bootstrap's JavaScript plugin
+            using bootstrap.bundle.min.js.
+        </div>
+    </div>
+</div>
+
+<script src="js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

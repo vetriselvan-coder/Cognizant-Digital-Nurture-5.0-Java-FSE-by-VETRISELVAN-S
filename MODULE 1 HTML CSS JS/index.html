@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Local Community Event Portal</title>
+
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Navigation -->
+<header>
+    <h1 id="mainHeader">Community Event Portal</h1>
+
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#events">Events</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#register">Register</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+
+<!-- Home -->
+<section id="home">
+    <div id="welcomeBanner">
+        Welcome Residents!
+        <span style="color:red;font-weight:bold;">
+            20% Discount for Early Registration
+        </span>
+    </div>
+
+    <h2>About Portal</h2>
+
+    <p class="highlight">
+        Register for community events and stay connected.
+    </p>
+</section>
+
+<!-- Events -->
+<section id="events">
+    <h2>Upcoming Events</h2>
+
+    <select id="eventCategory">
+        <option value="all">All Events</option>
+        <option value="music">Music</option>
+        <option value="sports">Sports</option>
+        <option value="workshop">Workshop</option>
+    </select>
+
+    <div id="eventContainer"></div>
+</section>
+
+<!-- Gallery -->
+<section id="gallery">
+    <h2>Event Gallery</h2>
+
+    <table>
+        <tr>
+            <td>
+                <img src="images/event1.jpg"
+                     class="gallery-img"
+                     alt="Music Event"
+                     title="Music Event">
+            </td>
+
+            <td>
+                <img src="images/event2.jpg"
+                     class="gallery-img"
+                     alt="Sports Event"
+                     title="Sports Event">
+            </td>
+
+            <td>
+                <img src="images/event3.jpg"
+                     class="gallery-img"
+                     alt="Workshop"
+                     title="Workshop">
+            </td>
+        </tr>
+    </table>
+</section>
+
+<!-- Registration -->
+<section id="register">
+
+    <h2>Event Registration</h2>
+
+    <form id="registrationForm">
+
+        <input type="text"
+               id="name"
+               placeholder="Enter Name"
+               required
+               autofocus>
+
+        <input type="email"
+               id="email"
+               placeholder="Enter Email"
+               required>
+
+        <input type="date"
+               id="date"
+               required>
+
+        <select id="eventType">
+            <option>Music Festival</option>
+            <option>Sports Meet</option>
+            <option>Workshop</option>
+        </select>
+
+        <input type="text"
+               id="phone"
+               placeholder="Phone Number">
+
+        <textarea id="message"
+                  placeholder="Your Message"></textarea>
+
+        <p>Characters: <span id="count">0</span></p>
+
+        <button type="submit">
+            Register
+        </button>
+
+        <output id="result"></output>
+
+    </form>
+
+</section>
+
+<!-- Video -->
+<section>
+    <h2>Event Promo</h2>
+
+    <video width="500" controls id="promoVideo">
+        <source src="video/promo.mp4" type="video/mp4">
+    </video>
+
+    <p id="videoStatus"></p>
+</section>
+
+<!-- Geolocation -->
+<section>
+
+    <h2>Nearby Events</h2>
+
+    <button id="locationBtn">
+        Find Nearby Events
+    </button>
+
+    <p id="locationResult"></p>
+
+</section>
+
+<!-- Contact -->
+<section id="contact">
+
+    <h2>Contact</h2>
+
+    <p>Email: support@communityportal.com</p>
+
+</section>
+
+<footer>
+    <p>© 2026 Community Event Portal</p>
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>

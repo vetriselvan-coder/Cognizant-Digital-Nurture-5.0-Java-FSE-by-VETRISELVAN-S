@@ -2,6 +2,6 @@ Digital Nurture 5.0 - Java FSE Upskilling Solutions Overview This repository con
 
 The repository includes exercises, assignments, and hands-on implementations covering:
 
-Module 1: HTML5,CSS3,Javascript,Bootstrap 5
-Module 2: ANSI SQL using MySQL
-Module 3: Core Java
+ Module 1: HTML5,CSS3,Javascript,Bootstrap 5
+ Module 2: ANSI SQL using MySQL
+ Module 3: Core Java

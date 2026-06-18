@@ -1,0 +1,134 @@
+-- STEP 1: CREATE TABLES
+
+
+CREATE TABLE ACCOUNTS(
+    account_id NUMBER PRIMARY KEY,
+    account_holder VARCHAR2(50),
+    account_type VARCHAR2(20),
+    balance NUMBER(12,2)
+);
+
+CREATE TABLE EMPLOYEES(
+    employee_id NUMBER PRIMARY KEY,
+    employee_name VARCHAR2(50),
+    department_id NUMBER,
+    salary NUMBER(12,2)
+);
+
+
+-- STEP 2: INSERT DATA
+
+
+-- ACCOUNTS DATA
+INSERT INTO ACCOUNTS VALUES (101, 'Ravi', 'SAVINGS', 50000);
+INSERT INTO ACCOUNTS VALUES (102, 'Meena', 'SAVINGS', 30000);
+INSERT INTO ACCOUNTS VALUES (103, 'John', 'CURRENT', 80000);
+
+-- EMPLOYEES DATA
+INSERT INTO EMPLOYEES VALUES (1, 'Arun', 10, 40000);
+INSERT INTO EMPLOYEES VALUES (2, 'Kavya', 10, 45000);
+INSERT INTO EMPLOYEES VALUES (3, 'Vikram', 20, 50000);
+
+COMMIT;
+
+
+-- VERIFY INITIAL DATA
+
+
+SELECT * FROM ACCOUNTS;
+SELECT * FROM EMPLOYEES;
+
+
+-- SCENARIO 1: MONTHLY INTEREST (1%)
+
+
+CREATE OR REPLACE PROCEDURE ProcessMonthlyInterest
+AS
+BEGIN
+   UPDATE ACCOUNTS
+   SET balance = balance + (balance * 0.01)
+   WHERE account_type = 'SAVINGS';
+
+   COMMIT;
+END;
+/
+
+BEGIN
+   ProcessMonthlyInterest;
+END;
+/
+
+
+-- SCENARIO 2: EMPLOYEE BONUS UPDATE
+
+
+CREATE OR REPLACE PROCEDURE UpdateEmployeeBonus(
+    p_dept_id IN NUMBER,
+    p_bonus_percent IN NUMBER
+)
+AS
+BEGIN
+   UPDATE EMPLOYEES
+   SET salary = salary + (salary * p_bonus_percent / 100)
+   WHERE department_id = p_dept_id;
+
+   COMMIT;
+END;
+/
+
+BEGIN
+   UpdateEmployeeBonus(10, 5);
+END;
+/
+
+
+-- SCENARIO 3: TRANSFER FUNDS
+
+
+CREATE OR REPLACE PROCEDURE TransferFunds(
+    p_from_acc IN NUMBER,
+    p_to_acc   IN NUMBER,
+    p_amount   IN NUMBER
+)
+AS
+   v_balance NUMBER;
+BEGIN
+   -- Get source account balance
+   SELECT balance INTO v_balance
+   FROM ACCOUNTS
+   WHERE account_id = p_from_acc;
+
+   -- Check balance
+   IF v_balance >= p_amount THEN
+
+      UPDATE ACCOUNTS
+      SET balance = balance - p_amount
+      WHERE account_id = p_from_acc;
+
+      UPDATE ACCOUNTS
+      SET balance = balance + p_amount
+      WHERE account_id = p_to_acc;
+
+      COMMIT;
+
+   ELSE
+      DBMS_OUTPUT.PUT_LINE('Insufficient balance');
+   END IF;
+
+EXCEPTION
+   WHEN NO_DATA_FOUND THEN
+      DBMS_OUTPUT.PUT_LINE('Invalid account number');
+END;
+/
+
+BEGIN
+   TransferFunds(101, 102, 5000);
+END;
+/
+
+-- ENABLE OUTPUT
+SET SERVEROUTPUT ON;
+
+-- FINAL CHECK OUTPUTS
+SELECT * FROM ACCOUNTS;
+SELECT * FROM EMPLOYEES;

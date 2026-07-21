@@ -1,0 +1,65 @@
+<div
+  appHighlight
+  [ngClass]="cardClasses"
+  [ngStyle]="{'border-left': '8px solid ' + borderColor}"
+  style="padding:15px; margin:10px; border:1px solid black;">
+
+  <h2>{{ course.name }}</h2>
+
+  <p><strong>ID:</strong> {{ course.id }}</p>
+
+  <p><strong>Code:</strong> {{ course.code }}</p>
+
+  <p><strong>Credits:</strong> {{ course.credits | creditLabel }}</p>
+
+  <div [ngSwitch]="course.gradeStatus">
+
+    <p *ngSwitchCase="'passed'" style="color:green;">
+      🟢 Passed
+    </p>
+
+    <p *ngSwitchCase="'failed'" style="color:red;">
+      🔴 Failed
+    </p>
+
+    <p *ngSwitchCase="'pending'" style="color:gray;">
+      ⚪ Pending
+    </p>
+
+    <p *ngSwitchDefault>
+      Unknown Status
+    </p>
+
+  </div>
+
+<button (click)="editCourse()">
+  ✏️ Edit
+</button>
+
+<button
+  (click)="deleteCourse()"
+  style="margin-left:10px;background:red;color:white;">
+  🗑 Delete
+</button>
+
+<button (click)="toggleDetails()">
+  {{ isExpanded ? 'Hide Details' : 'Show Details' }}
+</button>
+
+  <button (click)="toggleDetails()">
+    {{ isExpanded ? 'Hide Details' : 'Show Details' }}
+  </button>
+
+  <div *ngIf="isExpanded">
+
+    <hr>
+
+    <p><strong>Instructor:</strong> John Smith</p>
+
+    <p><strong>Duration:</strong> 12 Weeks</p>
+
+    <p><strong>Mode:</strong> Online</p>
+
+  </div>
+
+</div>

@@ -1,0 +1,75 @@
+<h2>Add New Course</h2>
+
+<div *ngIf="successMessage" style="color:green;font-weight:bold">
+  {{ successMessage }}
+</div>
+
+<form #courseForm="ngForm" (ngSubmit)="onSubmit(courseForm)">
+
+  <p>
+    <label>Course Name</label><br>
+    <input
+      type="text"
+      name="name"
+      required
+      [(ngModel)]="name">
+  </p>
+
+  <p>
+    <label>Course Code</label><br>
+    <input
+      type="text"
+      name="code"
+      required
+      [(ngModel)]="code">
+  </p>
+
+  <p>
+    <label>Credits</label><br>
+    <input
+      type="number"
+      name="credits"
+      required
+      [(ngModel)]="credits">
+  </p>
+
+  <p>
+    <label>Grade Status</label><br>
+
+    <select
+      name="gradeStatus"
+      required
+      [(ngModel)]="gradeStatus">
+
+      <option value="">Select</option>
+      <option value="passed">Passed</option>
+      <option value="failed">Failed</option>
+      <option value="pending">Pending</option>
+
+    </select>
+  </p>
+
+  <p>
+
+    <label>
+
+      <input
+        type="checkbox"
+        name="enrolled"
+        [(ngModel)]="enrolled">
+
+      Enrolled
+
+    </label>
+
+  </p>
+
+  <button
+    type="submit"
+    [disabled]="courseForm.invalid">
+
+    Add Course
+
+  </button>
+
+</form>

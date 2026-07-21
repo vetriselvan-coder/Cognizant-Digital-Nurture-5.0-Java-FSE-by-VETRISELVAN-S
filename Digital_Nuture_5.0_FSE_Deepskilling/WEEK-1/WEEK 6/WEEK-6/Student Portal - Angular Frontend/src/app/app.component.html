@@ -1,0 +1,9 @@
+<div class="loading-overlay" *ngIf="loadingService.isLoading$ | async">
+  <div class="spinner-border text-light" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+</div>
+
+<app-header></app-header>
+
+<router-outlet></router-outlet>
